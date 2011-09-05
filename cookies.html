@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cookies</title>
+<script type="text/javascript" src="cookies.js"></script>
+<script type="text/javascript">
+function initCookies(){
+	// output current cookies
+	function outputCookies(){
+		var ck = document.cookie;
+		var p = document.getElementById('cookie-display');
+		if(ck.length){
+			p.innerHTML = unescape(ck);
+		}else{
+			p.innerHTML = 'No cookies created yet.';
+		}
+	}
+	outputCookies();
+	
+	// get cookie value
+	var g_btn = document.getElementById('btn-get'),
+		g_txt = document.getElementById('c-name-get'),
+		g_val = document.getElementById('c-name-val');
+		
+	g_btn.onclick = function(){
+		if(g_txt.value.length){
+			var val = Cookie.getCookie(g_txt.value);
+			if(val){
+				g_val.innerHTML = val;
+			}else{
+				g_val.innerHTML = 'There is no such cookie.';
+			}
+		}else{
+			g_val.innerHTML = 'Please enter a cookie name.';
+		}
+		return false;
+	}
+	g_txt.onfocus = function(){
+		this.select();
+	}
+	
+	
+	// create a cookie
+	var c_btn = document.getElementById('btn-create'),
+		cn_txt = document.getElementById('c-name-new'),
+		cv_txt = document.getElementById('c-value-new');
+		
+	c_btn.onclick = function(){
+		if(cn_txt.value.length && cv_txt.value.length){
+			var dt = new Date(new Date().getTime() + (1000*60*60*24) + 1); // expires in 24 hrs
+			if(Cookie.setCookie(cn_txt.value, cv_txt.value, {expires: dt, path: '/', domain: 'dropbox.com'})){
+				cn_txt.value = '';
+				cv_txt.value = '';
+				outputCookies();
+			}else{
+				alert('There was a problem with creating the cookie.');
+			}
+		}else{
+			alert('A field has been left blank.');
+		}
+		return false;
+	}
+	
+	// delete cookie
+	var dl_btn = document.getElementById('btn-delete'),
+		dl_txt = document.getElementById('c-name-del');
+		
+	dl_btn.onclick = function(){
+		if(dl_txt.value.length){
+			if(Cookie.deleteCookie(dl_txt.value, {path: '/', domain: 'dropbox.com'})){
+				alert('Cookie deleted.');
+				dl_txt.value = '';
+				outputCookies();
+			}else{
+				alert('No such cookie exists, or unable to delete.');
+				dl_txt.select();
+			}
+		}else{
+			alert('Field has been left blank.');
+		}
+		return false;
+	}
+}
+
+window.onload = initCookies;
+</script>
+
+<style type="text/css">
+body{font:12px/14px Arial, Helvetica, sans-serif;}
+</style>
+</head>
+
+<body>
+<form>
+	<h2>Create a Cookie</h2>
+	<fieldset>
+		<label for="c-name-new">Name</label>
+		<input id="c-name-new" type="text" value="" />
+	</fieldset>
+	<fieldset>
+		<label for="c-value-new">Value</label>
+		<input id="c-value-new" type="text" value="" />
+	</fieldset>
+	<button id="btn-create">Create</button>
+</form>
+
+<form>
+	<h2>Get Cookie Value</h2>
+	<fieldset>
+		<label for="c-name-get">Name</label>
+		<input id="c-name-get" type="text" value="" />
+	</fieldset>
+	<fieldset>
+		<p><strong>Value:</strong> <span id="c-name-val">Please enter a cookie name.</span></p>
+	</fieldset>
+	<button id="btn-get">Get</button>
+</form>
+
+<form>
+	<h2>Delete a Cookie</h2>
+	<fieldset>
+		<label for="c-name-del">Name</label>
+		<input id="c-name-del" type="text" value="" />
+	</fieldset>
+	<button id="btn-delete">Delete</button>
+</form>
+
+<div>
+	<h2>Current Cookies</h2>
+	<p id="cookie-display"></p>
+</div>
+
+</body>
+</html>
