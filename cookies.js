@@ -1,8 +1,12 @@
 /*
- * Simple JS Cookie Utility
- * Version: 1.0 (4/27/2011)
- * Andrew A. Lee (http://andrewleeart.com)
- * Please give credit to original author when using this utility.
+ * JavaScript Cookie Utility v1.1
+ *
+ * Copyright (c) 2011 Andrew A. Lee
+ *
+ * Dual licensed under the MIT and GPL licenses, located in
+ * MIT-LICENSE.txt and GPL-LICENSE.txt respectively.
+ *
+ * Mon Sep 05 2011 17:26:05 GMT-0500 (CDT)
  */
 var Cookie = {
 	setCookie: function(name, value, opts){
