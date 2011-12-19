@@ -1,3 +1,41 @@
- This is a small cookie utility I wrote as an exercise. It makes life easier
- when issuing cookies through JavaScript. Index.html is for testing the functionality.
- Proper documentation coming soon.
+I wrote this utility as an exercise in working with and issuing cookies from the client side.
+The utility provides three methods for working with cookies.
+
+Create Cookie
+boolean Cookie.set(str name, str value[, obj opts])
+
+arguments:
+  name - the name of the cookie specified as a string
+  value - the value the named cookie will store as a string
+  opts - an object that allows for addition settings:
+    expires - date object specifying when the cookie expires
+    path - the url path the cookie can be accessed from
+    domain - domain on which the cookie can be accessed from
+    secure - if the cookie is being set over a secure connection
+  
+a boolean value is returned based on whether or not the cookie was successfully created
+
+
+Retrieve cookie value
+mixed Cookie.get(str name)
+
+arguments:
+  name - the name of the cookie to retrieve the value for, specified as a string
+
+if a cookie with the specified name cannot be found, false is returned
+otherwise the value of the cookie is returned as a string
+
+
+Delete cookie
+str Cookie.remove(str name[, obj opts])
+
+arguments:
+  name - the name of the cookie to delete, specified as a string
+  opts - an object that allows for the specification of additional settings, as setting should match the
+         options that are specified when the cookie was created
+    path - the url path from which the cookie is accessed from
+	domain - the domain from which the cookie is accessed from
+	
+
+See the included index.html file additional examples of usage.
+
