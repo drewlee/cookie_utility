@@ -1,6 +1,7 @@
 I wrote this utility as an exercise in working with and issuing cookies from the client side.
 The utility provides three methods for working with cookies.
 
+
 Create Cookie
 boolean Cookie.set(str name, str value[, obj opts])
 
@@ -38,5 +39,6 @@ arguments:
 
 If the cookie is successfully deleted, true is returned. Otherwise, the method returns false.
 
-See the included index.html file additional examples of usage.
+
+See the included index.html file for additional examples of usage.
 
