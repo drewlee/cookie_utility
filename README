@@ -35,7 +35,8 @@ arguments:
          options that are specified when the cookie was created
     path - the url path from which the cookie is accessed from
 	domain - the domain from which the cookie is accessed from
-	
+
+If the cookie is successfully deleted, true is returned. Otherwise, the method returns false.
 
 See the included index.html file additional examples of usage.
 
