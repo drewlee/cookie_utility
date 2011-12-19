@@ -2,7 +2,7 @@ I wrote this utility as an exercise in working with and issuing cookies from the
 The utility provides three methods for working with cookies.
 
 
-Create Cookie
+Create Cookie:
 boolean Cookie.set(str name, str value[, obj opts])
 
 arguments:
@@ -17,7 +17,7 @@ arguments:
 a boolean value is returned based on whether or not the cookie was successfully created
 
 
-Retrieve cookie value
+Retrieve a Cookie's Value:
 mixed Cookie.get(str name)
 
 arguments:
@@ -27,7 +27,7 @@ if a cookie with the specified name cannot be found, false is returned
 otherwise the value of the cookie is returned as a string
 
 
-Delete cookie
+Delete a Cookie:
 str Cookie.remove(str name[, obj opts])
 
 arguments:
