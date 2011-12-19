@@ -56,7 +56,7 @@ basic example:
 Cookie.remove('useremail');
 
 example with options:
-Cookie.remove('useremail', 'john@johnny.com', {
+Cookie.remove('useremail', {
     path: '/',
     domain: 'mail.mysite.com'
 });
