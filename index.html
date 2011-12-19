@@ -4,12 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Cookies</title>
 <script type="text/javascript" src="cookies.js"></script>
+
 <script type="text/javascript">
 function initCookies(){
 	// output current cookies
 	function outputCookies(){
 		var ck = document.cookie;
 		var p = document.getElementById('cookie-display');
+		
 		if(ck.length){
 			p.innerHTML = unescape(ck);
 		}else{
@@ -25,7 +27,7 @@ function initCookies(){
 		
 	g_btn.onclick = function(){
 		if(g_txt.value.length){
-			var val = Cookie.getCookie(g_txt.value);
+			var val = Cookie.get(g_txt.value);
 			if(val){
 				g_val.innerHTML = val;
 			}else{
@@ -48,10 +50,12 @@ function initCookies(){
 		
 	c_btn.onclick = function(){
 		if(cn_txt.value.length && cv_txt.value.length){
-			var dt = new Date(new Date().getTime() + (1000*60*60*24) + 1); // expires in 24 hrs
-			if(Cookie.setCookie(cn_txt.value, cv_txt.value, {expires: dt, path: '/', domain: 'dropbox.com'})){
+			var dt = new Date(new Date().getTime() + (1000*60*60*24)); // expires in 24 hrs
+			
+			if(Cookie.set(cn_txt.value, cv_txt.value, {expires: dt, path: '/'})){
 				cn_txt.value = '';
 				cv_txt.value = '';
+				
 				outputCookies();
 			}else{
 				alert('There was a problem with creating the cookie.');
@@ -59,6 +63,7 @@ function initCookies(){
 		}else{
 			alert('A field has been left blank.');
 		}
+		
 		return false;
 	}
 	
@@ -68,9 +73,10 @@ function initCookies(){
 		
 	dl_btn.onclick = function(){
 		if(dl_txt.value.length){
-			if(Cookie.deleteCookie(dl_txt.value, {path: '/', domain: 'dropbox.com'})){
+			if(Cookie.remove(dl_txt.value, {path: '/'})){
 				alert('Cookie deleted.');
 				dl_txt.value = '';
+				
 				outputCookies();
 			}else{
 				alert('No such cookie exists, or unable to delete.');
@@ -79,6 +85,7 @@ function initCookies(){
 		}else{
 			alert('Field has been left blank.');
 		}
+		
 		return false;
 	}
 }
@@ -92,6 +99,8 @@ body{font:12px/14px Arial, Helvetica, sans-serif;}
 </head>
 
 <body>
+<h1>Cookie Tester Interface</h1>
+
 <form>
 	<h2>Create a Cookie</h2>
 	<fieldset>
