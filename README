@@ -16,6 +16,16 @@ arguments:
   
 a boolean value is returned based on whether or not the cookie was successfully created
 
+basic example:
+Cookie.set('useremail', 'john@johnny.com');
+
+example with options:
+Cookie.set('useremail', 'john@johnny.com', {
+    expires: new Date(new Date().getTime() + (1000*60*60*24)), // expires in 24 hours
+	path: '/',
+	domain: 'mail.mysite.com'
+});
+
 
 Retrieve a Cookie's Value:
 mixed Cookie.get(str name)
@@ -25,6 +35,9 @@ arguments:
 
 if a cookie with the specified name cannot be found, false is returned
 otherwise the value of the cookie is returned as a string
+
+example:
+var email = Cookie.get('useremail');
 
 
 Delete a Cookie:
@@ -38,6 +51,15 @@ arguments:
 	domain - the domain from which the cookie is accessed from
 
 If the cookie is successfully deleted, true is returned. Otherwise, the method returns false.
+
+basic example:
+Cookie.remove('useremail');
+
+example with options:
+Cookie.set('useremail', 'john@johnny.com', {
+	path: '/',
+	domain: 'mail.mysite.com'
+});
 
 
 See the included index.html file for additional examples of usage.
