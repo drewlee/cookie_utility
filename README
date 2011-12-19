@@ -22,8 +22,8 @@ Cookie.set('useremail', 'john@johnny.com');
 example with options:
 Cookie.set('useremail', 'john@johnny.com', {
     expires: new Date(new Date().getTime() + (1000*60*60*24)), // expires in 24 hours
-	path: '/',
-	domain: 'mail.mysite.com'
+    path: '/',
+    domain: 'mail.mysite.com'
 });
 
 
@@ -56,9 +56,9 @@ basic example:
 Cookie.remove('useremail');
 
 example with options:
-Cookie.set('useremail', 'john@johnny.com', {
-	path: '/',
-	domain: 'mail.mysite.com'
+Cookie.remove('useremail', 'john@johnny.com', {
+    path: '/',
+    domain: 'mail.mysite.com'
 });
 
 
