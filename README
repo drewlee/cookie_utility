@@ -33,7 +33,7 @@ mixed Cookie.get(str name)
 arguments:
   name - the name of the cookie to retrieve the value for, specified as a string
 
-if a cookie with the specified name cannot be found, false is returned
+if a cookie with the specified name cannot be found, boolean false is returned
 otherwise the value of the cookie is returned as a string
 
 example:
@@ -41,7 +41,7 @@ var email = Cookie.get('useremail');
 
 
 Delete a Cookie:
-str Cookie.remove(str name[, obj opts])
+boolean Cookie.remove(str name[, obj opts])
 
 arguments:
   name - the name of the cookie to delete, specified as a string
@@ -50,7 +50,7 @@ arguments:
     path - the url path from which the cookie is accessed from
 	domain - the domain from which the cookie is accessed from
 
-If the cookie is successfully deleted, true is returned. Otherwise, the method returns false.
+If the cookie is successfully deleted, true is returned. Otherwise, the method returns boolean false.
 
 basic example:
 Cookie.remove('useremail');
