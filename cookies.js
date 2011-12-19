@@ -52,7 +52,7 @@ var Cookie = (function(){
 			if(getValue(name)){
 				opts = opts || {};
 				
-				var a = [name + "=null", "expires=" + new Date(new Date().getTime() - (1000*60*60*24*30) - 1).toUTCString()];
+				var a = [name + "=null", "expires=" + new Date(new Date().getTime() - (1000*60*60*24*30)).toUTCString()];
 				
 				if('path' in opts){a.push("path=" + escape(opts.path))};
 				if('domain' in opts){a.push("domain=" + escape(opts.domain))};
