@@ -10,7 +10,7 @@
  */
 var Cookie = (function(){
 	function escapeRegExMeta(str){
-		str = str.replace(/[\\^[\].${}*(+)|?<>]/g, function(s){
+		str = str.replace(/[\\^[\].${}*()+|?<>]/g, function(s){
 			return '\\'+s; 
 		});
 	
