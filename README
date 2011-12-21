@@ -2,8 +2,10 @@
 BACKGROUND
 ----------
 
-I wrote this utility as an exercise in working with and issuing cookies from the client side.
-The utility provides three methods for working with cookies.
+Working with cookies on the client side is short of being straight forward. As such, it is
+helpful to use utility functions to abstract some of the JavaScript cookie management methodoligies.
+I wrote this utility as an exercise to gain a deeper understanding of cookies and the result is
+a great set of methods that I hope others will also find useful.
 
 
 -----
