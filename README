@@ -1,8 +1,18 @@
+----------
+BACKGROUND
+----------
+
 I wrote this utility as an exercise in working with and issuing cookies from the client side.
 The utility provides three methods for working with cookies.
 
 
-Create Cookie:
+-----
+USAGE
+-----
+
+Create Cookie
+-------------
+
 boolean Cookie.set(str name, str value[, obj opts])
 
 arguments:
@@ -27,7 +37,9 @@ Cookie.set('useremail', 'john@johnny.com', {
 });
 
 
-Retrieve a Cookie's Value:
+Retrieve Cookie Value
+---------------------
+
 mixed Cookie.get(str name)
 
 arguments:
@@ -40,7 +52,9 @@ example:
 var email = Cookie.get('useremail');
 
 
-Delete a Cookie:
+Delete Cookie
+-------------
+
 boolean Cookie.remove(str name[, obj opts])
 
 arguments:
@@ -63,4 +77,3 @@ Cookie.remove('useremail', {
 
 
 See the included index.html file for additional examples of usage.
-
