@@ -24,7 +24,7 @@ arguments:
     expires - date object specifying when the cookie expires
     path - the url path the cookie can be accessed from
     domain - domain on which the cookie can be accessed from
-    secure - if the cookie is being set over a secure connection
+    secure - if the cookie is being set over a secure connection, specify as boolean true to enable
   
 a boolean value is returned based on whether or not the cookie was successfully created
 
