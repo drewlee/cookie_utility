@@ -37,10 +37,8 @@ Cookie.set('useremail', 'john@johnny.com', {
 
 ###Retrieve Cookie Value
 
-mixed Cookie.get(str name)
-
-arguments:
-  name - the name of the cookie to retrieve the value for, specified as a string
+Arguments:
+* **name** - the name of the cookie to retrieve the value for, specified as a string
 
 if a cookie with the specified name cannot be found, boolean false is returned
 otherwise the value of the cookie is returned as a string
@@ -52,14 +50,12 @@ var email = Cookie.get('useremail');
 
 ###Delete Cookie
 
-boolean Cookie.remove(str name[, obj opts])
-
-arguments:
-  name - the name of the cookie to delete, specified as a string
-  opts - an object that allows for the specification of additional settings, as setting should match the
+Arguments:
+* **name** - the name of the cookie to delete, specified as a string
+* **opts** - an object that allows for the specification of additional settings, as setting should match the
          options that are specified when the cookie was created
-    path - the url path from which the cookie is accessed from
-	domain - the domain from which the cookie is accessed from
+  * **path** - the url path from which the cookie is accessed from
+	* **domain** - the domain from which the cookie is accessed from
 
 If the cookie is successfully deleted, true is returned. Otherwise, the method returns boolean false.
 
