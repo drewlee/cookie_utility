@@ -17,16 +17,17 @@ Arguments:
   * **expires** - date object specifying when the cookie expires
   * **path** - the url path the cookie can be accessed from
   * **domain** - domain on which the cookie can be accessed from
-  * **secure** - if the cookie is being set over a secure connection, specify as boolean true to enable
+  * **secure** - if the cookie is being set over a secure connection, specify as boolean true to 
+    enable
   
-a boolean value is returned based on whether or not the cookie was successfully created
+A boolean value is returned based on whether or not the cookie was successfully created.
 
-basic example:
+Basic example:
 ```javascript
 Cookie.set('useremail', 'john@johnny.com');
 ```
 
-example with options:
+Example with options:
 ```javascript
 Cookie.set('useremail', 'john@johnny.com', {
     expires: new Date(new Date().getTime() + (1000*60*60*24)), // expires in 24 hours
@@ -40,10 +41,10 @@ Cookie.set('useremail', 'john@johnny.com', {
 Arguments:
 * **name** - the name of the cookie to retrieve the value for, specified as a string
 
-if a cookie with the specified name cannot be found, boolean false is returned
-otherwise the value of the cookie is returned as a string
+If a cookie with the specified name cannot be found, boolean false is returned
+otherwise the value of the cookie is returned as a string.
 
-example:
+Example:
 ```javascript
 var email = Cookie.get('useremail');
 ```
@@ -52,19 +53,20 @@ var email = Cookie.get('useremail');
 
 Arguments:
 * **name** - the name of the cookie to delete, specified as a string
-* **opts** - an object that allows for the specification of additional settings, as setting should match the
-         options that are specified when the cookie was created
+* **opts** - an object that allows for the specification of additional settings, as setting should 
+    match the options that are specified when the cookie was created
   * **path** - the url path from which the cookie is accessed from
 	* **domain** - the domain from which the cookie is accessed from
 
-If the cookie is successfully deleted, true is returned. Otherwise, the method returns boolean false.
+If the cookie is successfully deleted, true is returned. Otherwise, the method returns boolean
+false.
 
-basic example:
+Basic example:
 ```javascript
 Cookie.remove('useremail');
 ```
 
-example with options:
+Example with options:
 ```javascript
 Cookie.remove('useremail', {
     path: '/',
