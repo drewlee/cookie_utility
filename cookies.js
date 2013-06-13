@@ -1,6 +1,8 @@
 var Cookie = (function(){
   function escapeRegExMeta(str){
-    str = str.replace(/[\\\^\[\].${}*()+|?<>]/g, function(match){
+    var meta = /[\\\^\[\].${}*()+|?<>]/g;
+
+    str = str.replace(meta, function(match){
       return '\\' + match; 
     });
   
@@ -10,7 +12,8 @@ var Cookie = (function(){
   function getValue(key){
     key = escapeRegExMeta(key);
 
-    var value = document.cookie.match(new RegExp('(^' + key + '|;\s?' + key + ')=([^;]+)'));
+    var regex = new RegExp('(^' + key + '|;\\s?' + key + ')=([^;]+)'),
+        value = document.cookie.match(regex);
     
     if (value){
       value = value.pop();
@@ -21,7 +24,6 @@ var Cookie = (function(){
   
   return {
     _escapeRegExMeta: escapeRegExMeta,
-
     _getValue: getValue,
 
     set: function(name, value, opts){

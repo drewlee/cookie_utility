@@ -48,11 +48,14 @@ describe('get key', function(){
 	for(var i=0; i<30; i++){
 		it('retrieves key value', function(){
 			var obj = generateRandomCookie();
-			var keyIdx = Math.floor(Math.random() * obj.keys.length);
+			var keyIdx = Math.floor( Math.random() * obj.keys.length );
+
+			for (var j=0, l=obj.keys.length; j<l; j++){
+				document.cookie = obj.keys[j] + '=' + obj.values[j];
+			}
 			
 			console.log('index: ' + idx++, '\n', 'key index: ' + keyIdx, '\n', 'key:   ' + obj.keys[keyIdx], '\n', 'value: ' + obj.values[keyIdx]);
-			
-			expect(getValue(obj.keys[keyIdx], obj.cookie)).toEqual(obj.values[keyIdx]);
+			expect( Cookie._getValue( obj.keys[keyIdx] ) ).toEqual( obj.values[keyIdx] );
 		});
 	}
 });
