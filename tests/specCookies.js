@@ -27,7 +27,7 @@ describe('Cookie life cycle.', function(){
       Cookie.set(
         key,
         value,
-        { expires: new Date( Date.now() + (1000 * 60) ) }
+        { expires: new Date( new Date().getTime() + (1000 * 60) ) }
       )
     ).toEqual(true);
     //console.log(document.cookie);
