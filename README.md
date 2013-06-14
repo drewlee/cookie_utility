@@ -30,7 +30,7 @@ Cookie.set('useremail', 'john@johnny.com');
 Example with options:
 ```javascript
 Cookie.set('useremail', 'john@johnny.com', {
-    expires: new Date(new Date().getTime() + (1000*60*60*24)), // expires in 24 hours
+    expires: new Date(new Date().getTime() + (1000 * 60 * 60 * 24)), // expires in 24 hours
     path: '/',
     domain: 'mail.mysite.com'
 });
